@@ -1,0 +1,31 @@
+{
+    "version": "1.5.10",
+    "description": "SSH, multi-hop Bastion, tunnel and internal web shortcut manager with a browser UI (SSHDesk)",
+    "homepage": "https://github.com/qmdch1/Gatedock",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/qmdch1/Gatedock/releases/download/v1.5.10/sshdesk.exe",
+            "hash": "688666b03fe9edc445153ae290512323c5761449817c90e0ddfaf95fe26d0383"
+        }
+    },
+    "bin": "sshdesk.exe",
+    "shortcuts": [
+        [
+            "sshdesk.exe",
+            "SSHDesk"
+        ]
+    ],
+    "notes": "SSHDesk opens its admin UI at http://127.0.0.1:9876. Data is kept in %LOCALAPPDATA%, so it survives updates.",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/qmdch1/Gatedock/releases/download/v$version/sshdesk.exe",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}

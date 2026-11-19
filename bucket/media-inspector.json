@@ -1,0 +1,30 @@
+{
+    "version": "1.0.0",
+    "description": "Windows media tool: file search, duplicate finder and video quality check (bundles ffprobe)",
+    "homepage": "https://github.com/qmdch1/media-inspector",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/qmdch1/media-inspector/releases/download/v1.0.0/MediaInspector.zip",
+            "hash": "f631e31e8445ec923baa59aac3f09a6e36ee3d2ea9c08031fb17301849071e73"
+        }
+    },
+    "bin": "MediaInspector.exe",
+    "shortcuts": [
+        [
+            "MediaInspector.exe",
+            "Media Inspector"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/qmdch1/media-inspector/releases/download/v$version/MediaInspector.zip",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}

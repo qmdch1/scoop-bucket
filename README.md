@@ -1,42 +1,21 @@
-# Scoop Bucket Template
+# qmdch1 Scoop bucket
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+[![Tests](https://github.com/qmdch1/scoop-bucket/actions/workflows/ci.yml/badge.svg)](https://github.com/qmdch1/scoop-bucket/actions/workflows/ci.yml) [![Excavator](https://github.com/qmdch1/scoop-bucket/actions/workflows/excavator.yml/badge.svg)](https://github.com/qmdch1/scoop-bucket/actions/workflows/excavator.yml)
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+[Scoop](https://scoop.sh)으로 qmdch1의 Windows 도구를 설치하는 버킷입니다.
 
-## How do I use this template?
-
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Workflow permissions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Ensure `Read repository contents and packages permissions` is selected.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
-
-## How do I install these manifests?
-
-After manifests have been committed and pushed, run the following:
-
-```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+```powershell
+scoop bucket add qmdch1 https://github.com/qmdch1/scoop-bucket
+scoop install qmdch1/sshdesk
 ```
 
-## How do I contribute new manifests?
+| 앱 | 설명 | 저장소 |
+| --- | --- | --- |
+| `sshdesk` | SSH 접속, 다중 Bastion 경유, 터널, 내부 웹 바로가기 관리 | [Gatedock](https://github.com/qmdch1/Gatedock) |
+| `media-inspector` | 파일 검색, 중복 파일 찾기, 동영상 품질 검사 (ffprobe 포함) | [media-inspector](https://github.com/qmdch1/media-inspector) |
+| `chronograph` | 활성 창 사용 시간 기록 | [chronograph](https://github.com/qmdch1/chronograph) |
+| `pulse-ops` | 서버·DB·Redis·HTTP 관측 대시보드 (단독 실행 바이너리) | [pulse-ops](https://github.com/qmdch1/pulse-ops) |
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+업데이트는 `scoop update *`로 받습니다. 새 릴리스는 Excavator 워크플로가 4시간마다 확인해 매니페스트에 반영합니다.
+
+Scoop은 브라우저를 거치지 않고 파일을 받으므로 보통 SmartScreen 경고가 뜨지 않습니다. 다만 Windows Defender 검사와 스마트 앱 컨트롤, 회사 PC의 실행 정책은 그대로 적용됩니다.

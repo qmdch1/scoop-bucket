@@ -1,0 +1,37 @@
+{
+    "version": "1.0.0",
+    "description": "Windows activity tracker that logs active window usage time locally",
+    "homepage": "https://github.com/qmdch1/chronograph",
+    "license": "MIT",
+    "suggest": {
+        "vcredist": "extras/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/qmdch1/chronograph/releases/download/1.0.0/chronograph.exe",
+            "hash": "e8b23dd87f84e0af60cab24c4f728f86dcded8cbb69c23aa8aeddaf5eb57a169"
+        }
+    },
+    "bin": "chronograph.exe",
+    "shortcuts": [
+        [
+            "chronograph.exe",
+            "Chronograph"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/qmdch1/chronograph/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "(?<tag>v?([\\d.]+))"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/qmdch1/chronograph/releases/download/$matchTag/chronograph.exe",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}
